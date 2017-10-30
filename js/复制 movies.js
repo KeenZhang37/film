@@ -10,9 +10,12 @@ var swiper = new Swiper('.swiper-container', {
 	slidesPerView: 1,
 	mousewheelControl: true,
 	onSlideChangeEnd: function(swiper) {
+		b ++;
 		var j = swiper.activeIndex;
+		if(b > Li.length -1){
+			b = j;
+		}
 		console.log(b)
-		console.log('page'+j)
 		for(var i=0;i<7;i++){
 			Li[i].className = '';
 			A[i].className='';
@@ -37,19 +40,7 @@ for(var i = 0; i <Li.length ; i ++){
 		return b;
 	}
 }
-//点击导航右侧正方形，左侧导航显示
-var square = document.querySelector('.square');
-var minSquare = square.getElementsByTagName('li');
-var hidden_nav = document.querySelector('.hidden_nav');
-var on = true;
-square.onclick = function(){
-	if(on){
-		hidden_nav.style.left = 0;
-	}else{
-		hidden_nav.style.left = '-240px';
-	}
-	on = !on;
-}
+
 //滚轮滚动导航条的缩放
 var navbar = document.querySelector('.nav');
 var swiperSlider = document.querySelector('.swiper-slide.page1');
@@ -79,7 +70,6 @@ window.onmousewheel = function(){
 		navC.style.top = '-9px';
 		navR.style.marginTop = '-9px';
 	}
-	hidden_nav.style.left = '-240px';
 }
 
 //第一页轮播
@@ -89,7 +79,6 @@ var mySwiper = new Swiper('.swiper-container1', {
 	prevButton: '.swiper-button-prev',
 	paginationClickable :true,
 	autoplay: 5000,
-	autoplayDisableOnInteraction:false,
 	slidesPerView: 1,
 	spaceBetween: 30,
 	loop: true,
@@ -112,7 +101,7 @@ var mySwiper = new Swiper('.swiper-container1', {
   })  
 //首页点击下键转入第二页
 $('.page1 .iconfont').click(function(){
-//	b = 1;
+	b = 1;
 })
 //第二页轮播
 var swiper = new Swiper('.swiper-container2', {
@@ -122,7 +111,6 @@ var swiper = new Swiper('.swiper-container2', {
 	spaceBetween: 20,
 	freeMode: true,
 	autoplay: 3000,
-	autoplayDisableOnInteraction:false,
 	prevButton: '.swiper-button-prev',
 	nextButton: '.swiper-button-next',
 });
@@ -131,7 +119,6 @@ var swiper = new Swiper('.swiper-container3', {
 	slidesPerView: 'auto',
 	slidesPerColumn: 3,
 	autoplay: 3000,
-	autoplayDisableOnInteraction:false,
 	prevButton: '.swiper-button-prev',
 	nextButton: '.swiper-button-next',
 });
@@ -143,7 +130,6 @@ var swiper = new Swiper('.swiper-container4', {
 	//				spaceBetween: 10,
 	freeMode: true,
 	autoplay: 3000,
-	autoplayDisableOnInteraction:false,
 	prevButton: '.swiper-button-prev',
 	nextButton: '.swiper-button-next',
 });
@@ -154,7 +140,6 @@ var swiper = new Swiper('.swiper-container6', {
 	loop: true,
 	slidesPerColumn: 1,
 	autoplay: 3000,
-	autoplayDisableOnInteraction:false,
 	prevButton: '.swiper-button-prev',
 	nextButton: '.swiper-button-next',
 });
@@ -163,7 +148,23 @@ var swiper = new Swiper('.swiper-container6', {
 new WOW().init();
 
 
+//点击导航右侧正方形，左侧导航显示
+var square = document.querySelector('.square');
+var minSquare = square.getElementsByTagName('li');
+var hidden_nav = document.querySelector('.hidden_nav');
+var on = true;
+//console.log(minSquare)
 
+//for(var i = 0; i < 4 ; i ++){
+	square.onclick = function(){
+		if(on){
+			hidden_nav.style.left = 0;
+		}else{
+			hidden_nav.style.left = '-240px';
+		}
+		on = !on;
+	}
+//}
 
 //左侧隐藏导航
 var nav1 = document.querySelectorAll('.hidden_nav .nav_text .nav1');

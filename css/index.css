@@ -57,16 +57,18 @@ a {
 .hidden_nav .nav_text .nav1 {
 	position: relative;
 	margin: 0 auto;
-	width: 140px;
 	text-align: center;
 	line-height: 36px;
-	border-radius: 18px;
 }
 .nav_text .nav1.active {
-	background: #00dfb9;
 }
 .nav_text .nav1.active>a{
+	display: block;
+	width: 140px;
+	margin: 0 auto;
 	color: white;
+	background: #00dfb9;
+	border-radius: 18px;
 }
 .nav_text .nav1>a {
 	color: #393939;
@@ -79,21 +81,29 @@ a {
 .nav1 ul {
 	position: absolute;
 	width: 170px;
-	left: 160px;
+	left: 210px;
 	color: white;
 	background: rgba(0,0,0,.9);
 	border-radius: 12px;
 	display: none;
+	overflow: hidden;
+}
+.nav1 ul li:hover {
+	background: rgba(0,0,0,1);
 }
 /*小三角形*/
-.nav1 ul i {
+.nav1 i {
 	display: block;
     position: absolute;
-    left: -15px;
-    top: 27px;
+    right: 29px;
+    top: 8px;
     border-width: 9px 16px 9px 0;
     border-color: white #171717 white white;
     border-style: solid;
+    display: none;
+}
+.nav1:hover i {
+	display: block;
 }
 .nav1 ul.one {
 	top: -73px;
@@ -108,7 +118,7 @@ a {
 	top: -17px;
 }
 .nav1 ul.four {
-	top: 1px;
+	top: -1px;
 }
 .nav1 ul.four i {
 	top: 8px;
@@ -172,6 +182,12 @@ a {
     box-sizing: border-box;
     border-top: 3px solid rgba(225,225,225,0);
     transition: padding 1s;
+}
+.nav .center li:hover {
+	border-color: #00dfb9;
+}
+.nav .center li:hover a {
+	color: #00dfb9;
 }
 .nav .center li.on {
 	border-color: #00dfb9;
